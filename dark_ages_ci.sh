@@ -102,7 +102,7 @@ function make_flashable() {
 
 # Generate changelog
 function generate_changelog() {
-    logs=$(git log --reverse --after=$(date +%Y-%m-01) --pretty=format:'- %s' | sed -e 's|.*: ||g' | sed -e 's|^|- |g')
+    logs=$(git log --reverse --after=$(date +%Y-%m-01) --pretty=format:'- %s')
     export CHANGE_URL=$(echo "$logs" | curl -F 'clbin=<-' https://clbin.com)
 }
 
